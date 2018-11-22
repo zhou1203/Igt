@@ -69,37 +69,6 @@ public class DbControl {
 		}
 	}
 	
-	public String sqlInsertBuilder(String tableName, String[] columns) {
-		StringBuffer sql = new StringBuffer();
-		sql.append("insert into ");
-		sql.append(tableName);
-		sql.append("(");
-		int len = columns.length;
-		// insert into tableName (...) values(?,?...)
-		for (int i = 0; i < len; i ++) {
-			sql.append(columns[i]);
-			if (i != len - 1) {
-				sql.append(",");
-			}
-		}
-		
-		sql.append(") values(");
-		for (int i = 0; i < len; i++) {
-			sql.append("?");
-			if (i != len - 1) {
-				sql.append(",");
-			}
-		}
-		
-		sql.append(")");
-		
-		System.out.println(sql);
-		
-		return sql.toString();
-	}
-	
-	
-	
 	public Map<String, Object> findSimpleResult(String sql, List<String> params) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		int index  = 1;
@@ -129,5 +98,7 @@ public class DbControl {
 	}
 	
 }
+
+
 
 

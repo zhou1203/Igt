@@ -3,12 +3,11 @@ package Card;
 public class CardUtil {
 	
 	public static void  Desc(Card card) {
-		System.out.println("你抽中的是卡牌" + card.getType() + "\n");
+		System.out.println("浣犳娊鍒扮殑鏄墝" + card.getType() + "\n");
 	}
 	
-	// 利用从数组中抽取数字来计算概率
 	public static boolean probability(int p, Card card) {
-		int count = 10 / p; // 计算数组长度
+		int count = 10 / p;
 		int a[] = new int[count];
 		for (int i=0; i<count; i++) {
 			a[i] = i + 1;

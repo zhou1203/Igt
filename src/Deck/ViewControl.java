@@ -10,7 +10,6 @@ import User.User;
  */
 
 public class ViewControl {
-	private int count;
 	private User user;
 	private Scanner in;
 	private TestControl testCtl;
@@ -20,16 +19,15 @@ public class ViewControl {
 	}
 	
 	public void game() {
-		count = 1;
+		int count = 1;
 		int limit = 100;
 		int index;
 		welcome();
-		System.out.println("*******���Կ�ʼ��*******");
-		count = 1;
-		Long startTime, endTime, decisionTime;
+		System.out.println("*******测试开始*******");
+		long startTime, endTime, decisionTime;
 		
 		while (count <= limit) {
-			System.out.println("=======================\n��" + count + "�γ���:");
+			System.out.println("=======================\n第" + count + "次抽牌");
 			startTime = System.currentTimeMillis();
 			index = in.nextInt();
 			endTime = System.currentTimeMillis();
@@ -37,7 +35,7 @@ public class ViewControl {
 			testCtl.gameHandler(user, index, count, decisionTime);
 			
 			if (user.getMoney() < 0) {
-				System.out.println("�����ʲ��Ѿ��ľ�����������Ҫ�������Լ�������\n�������������Ľ�");
+				System.out.println("你的账户透支，现在你可以向终端贷款，请输入贷款金额：\n");
 				int borrowMoney;
 				borrowMoney = in.nextInt();
 				testCtl.borrow(borrowMoney);
@@ -50,17 +48,17 @@ public class ViewControl {
 		
 	public void welcome() {
 		String userId, gender;
-		System.out.println("��ӭ������IGT�Ĳ�С��Ϸ����Ϸ�����ǣ�����1234�����Ƹ�100�š��������400�����а��������������󻯵�ԭ���100�Σ��Ա�֤��������ջ�Ľ����ࡣÿ�γ������ֽ��������1234����ֱ�����:\r\n" + 
-				"�ٳ鵽A�ƣ�����1/2�ĸ��ʻ��100����1/2�ĸ��ʿ۳�35~150���ȵķ���\r\n" + 
-				"�ڳ鵽B�ƣ�����9/10�ĸ��ʻ��100����1/10�ĸ��ʿ۳�1250����\r\n" + 
-				"�۳鵽C�ƣ�����1/2�ĸ��ʻ��50����1/2�ĸ��ʿ۳�25~75���ȵķ���\r\n" + 
-				"�ܳ鵽D�ƣ�����9/10�ĸ��ʻ��50����1/10�ĸ��ʿ۳�250����\r\n" + 
-				"Ϊ���������и��õ���Ϸ���飬���ǽ�Ϊ���ṩ2000Ԫ����Ϸ��������\r\n" + 
-				"������ڶĲ������г��ָ��ʲ�״����ϵͳ����ʾ�����ҵ�����������о���������ȷ���г�����ֽ������Ϸ��\r\n" + 
-				"ȷ�����������Ե����ʼ������Ϸ��ϰ������ȷ������ɵ��������ϰ����ʼ��Ϸ�� ��ô����������������ϰһ�£������ʽ������ĶĲ���Ϸ֮�ð�");
-		System.out.println("��������Ա��");
+		System.out.println("欢迎你来到IGT赌博小游戏，游戏规则是：现有1234四种牌各100张。请你从这400张牌中按照你觉得利益最大化的原则抽100次，以保证最后您所收获的金额更多。每次抽有四种结果，抽中1234结果分别如下:\r\n" + 
+				"①抽到1牌，你有1/2的概率获得100奖金，1/2的概率扣除35~150不等的罚金\r\n" + 
+				"②抽到2牌，你有9/10的概率获得100奖金，1/10的概率扣除1250罚金\r\n" + 
+				"③抽到3牌，你有1/2的概率获得50奖金，1/2的概率扣除25~75不等的罚金\r\n" + 
+				"④抽到4牌，你有9/10的概率获得50奖金，1/10的概率扣除250罚金\r\n" + 
+				"为了能让您有更好的游戏体验，我们将免费为您提供2000元的游戏基础基金。\r\n" + 
+				"如果您在赌博过程中出现负资产状况，系统会提示您借款业务，您可以自行决定借款金额，以确保有充足的现金继续游戏。\r\n" + 
+				"确认理解后您可以点击开始进行游戏练习，当您确保理解后可点击结束练习、开始游戏， 那么现在让我们先来练习一下，随后正式开启你的赌博游戏之旅吧");
+		System.out.println("请输入您的编号");
 		userId = in.next();
-		System.out.println("�������Ա�");
+		System.out.println("请输入您的性别");
 		gender = in.next();
 		this.user = testCtl.register(userId, gender);
 	}

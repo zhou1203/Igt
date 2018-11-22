@@ -17,7 +17,7 @@ public class Deck {
 	}
 	
 	public Card getCard(int index) {
-		card = deck.get(index);
+		card = deck.get(index - 1);
 		CardUtil.cardFactory(card);
 		return card;
 	}
