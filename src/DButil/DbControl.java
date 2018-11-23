@@ -21,7 +21,7 @@ public class DbControl {
 	
 	public void connect() {
 		String driver = "com.mysql.cj.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/igt?serverTimezone=GMT";
+		String url = "jdbc:mysql://localhost:3306/igt?serverTimezone=GMT&useSSL=true";
 		String username = "root";
 		String password = "password";
 		try {

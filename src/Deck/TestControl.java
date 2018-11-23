@@ -71,6 +71,7 @@ public class TestControl {
 		sql = DbTool.sqlInsertBuilder(Common.TableBorrow, Common.BorrowColumns);
 		db.insert(sql, params);
 	}
+
 	
 	public void close() {
 		db.close();

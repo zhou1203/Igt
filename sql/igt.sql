@@ -15,7 +15,7 @@ CREATE TABLE igt_scheme(
 
 CREATE TABLE user_scheme(
 	user_id CHAR(10) NOT NULL PRIMARY KEY,
-	gender CHAR(10) NOT NULL,
+	gender CHAR(10) NOT NULL
 )
 
 CREATE TABLE borrow_scheme(
